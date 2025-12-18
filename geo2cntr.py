@@ -60,7 +60,7 @@ for country_code, wpts in countries_data.items():
         file_text = file_text.rstrip("\n")  # delete last line
     else:
         # header of new file
-        file_text = "<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>\n<gpx version='1.1' creator='AI+M444' xmlns='http://www.topografix.com/GPX/1/1' xmlns:osmand='https://osmand.net' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd'>\n<metadata>\n<name>"+country_code+"</name>\n<author>\n<name>AI+M444</name>\n<link href='https://mariush444.github.io/Osmand-tools/'/>\n</author>\n</metadata>\n"
+        file_text = f"<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>\n<gpx version='1.1' creator='AI+M444' xmlns='http://www.topografix.com/GPX/1/1' xmlns:osmand='https://osmand.net' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd'>\n<metadata>\n<name>{country_code}</name>\n<author>\n<name>AI+M444</name>\n<link href='https://mariush444.github.io/Osmand-tools/'/>\n</author>\n</metadata>\n"
 
     # wpt into file
     file_text += "\n".join(wpts) + "\n"
