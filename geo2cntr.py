@@ -37,10 +37,12 @@ def GetCountryCode(lat, lon):
 
 # creating dictionary
 for match in pattern.finditer(GPXorg):
-    lat = round(float(match.group(1)),6)
-    lon = round(float(match.group(2)),6)
-    wpt_block = match.group(0)  # whole wpt
-    print('\r',lat,lon, end='', flush=True)
+    lat = float(match.group(1))
+    latR = round(lat,6)
+    lon = float(match.group(2))
+    lonR = round(lon,6)
+    wpt_block =  f'<wpt lat="{latR}" lon="{lonR}">{match.group(3)}</wpt>'
+    print(f'\r{latR} {lonR}', end='', flush=True)
     country_code = GetCountryCode(lat, lon)
 
     if country_code:
